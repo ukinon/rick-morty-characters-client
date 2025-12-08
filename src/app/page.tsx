@@ -1,12 +1,48 @@
-export default function Home() {
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { getCharacters } from "@/lib/api";
+import { CHARACTERS_QUERY_KEYS } from "@/lib/query-keys";
+import ClientPage from "./client-page";
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const queryClient = new QueryClient();
+
+  const page =
+    typeof resolvedSearchParams.page === "string"
+      ? parseInt(resolvedSearchParams.page)
+      : 1;
+  const name =
+    typeof resolvedSearchParams.search === "string"
+      ? resolvedSearchParams.search
+      : "";
+  const status =
+    typeof resolvedSearchParams.status === "string"
+      ? resolvedSearchParams.status
+      : "";
+  const gender =
+    typeof resolvedSearchParams.gender === "string"
+      ? resolvedSearchParams.gender
+      : "";
+
+  const queryParams = { page, name, status, gender };
+  const paramString = JSON.stringify(queryParams);
+
+  await queryClient.prefetchQuery({
+    queryKey: CHARACTERS_QUERY_KEYS.list(paramString),
+    queryFn: () => getCharacters(queryParams),
+  });
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh]">
-      <h1 className="text-4xl font-bold text-slate-800 mb-4">
-        Rick and Morty Explorer
-      </h1>
-      <p className="text-lg text-slate-600">
-        Start exploring characters from the multiverse.
-      </p>
-    </div>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <ClientPage />
+    </HydrationBoundary>
   );
 }
