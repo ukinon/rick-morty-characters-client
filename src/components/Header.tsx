@@ -3,11 +3,11 @@ import { ModeToggle } from "./mode-toggle";
 
 export function Header() {
   return (
-    <header className="bg-slate-900 text-white shadow-md">
+    <header className="bg-slate-100 text-black shadow-sm dark:bg-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link
           href="/"
-          className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+          className="text-2xl font-bold text-black dark:text-white transition-colors"
         >
           Rick & Morty
         </Link>

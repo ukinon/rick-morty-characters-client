@@ -7,20 +7,21 @@ import { Card } from "@/components/ui/card";
 
 export default function ClientPage() {
   return (
-    <div className="space-y-8">
-      <div className="text-center py-8">
-        <h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-          Rick and Morty Explorer
-        </h1>
-        <p className="text-lg text-slate-600 dark:text-slate-400">
-          Explore characters from the multiverse
-        </p>
-      </div>
+    <div className="space-y-10">
+      <Card className="p-5 bg-white/90 dark:bg-slate-900/85 border border-slate-200 dark:border-slate-800 shadow-lg">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <p className="text-base font-semibold text-slate-800 dark:text-slate-100">
+                Search and filter characters
+              </p>
+            </div>
+            <div className="w-full md:w-auto">
+              <SearchInput />
+            </div>
+          </div>
 
-      <Card className="p-4 bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
-        <div className="flex flex-col md:flex-row md:flex-wrap gap-4 justify-between items-start md:items-center w-full">
-          <SearchInput />
-          <div className="flex gap-3 w-full md:w-auto flex-wrap">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <FilterInput
               placeholder="Status"
               paramName="status"
@@ -29,6 +30,7 @@ export default function ClientPage() {
                 { label: "Dead", value: "dead" },
                 { label: "Unknown", value: "unknown" },
               ]}
+              width="100%"
             />
             <FilterInput
               placeholder="Gender"
@@ -39,8 +41,7 @@ export default function ClientPage() {
                 { label: "Genderless", value: "genderless" },
                 { label: "Unknown", value: "unknown" },
               ]}
-              className="w-full md:w-44"
-              width="180px"
+              width="100%"
             />
             <FilterInput
               placeholder="Species"
@@ -57,8 +58,7 @@ export default function ClientPage() {
                 { label: "Robot", value: "robot" },
                 { label: "Cronenberg", value: "cronenberg" },
               ]}
-              className="w-full md:w-44"
-              width="180px"
+              width="100%"
             />
           </div>
         </div>
