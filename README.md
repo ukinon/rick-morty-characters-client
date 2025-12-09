@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rick and Morty Character Explorer
+
+A web application to explore characters from the Rick and Morty TV series. Built with Next.js 15, Tailwind CSS, and Zustand as part of the Frontend Developer Assessment.
+
+## Features
+
+### Core Features
+
+- **Character List**: Paginated grid view of characters with status indicators.
+- **Search & Filter**: Search by name and filters for Status, Species, and Gender.
+- **Detailed View**: Character details including origin, location, and episode appearances.
+- **Responsive Design**: Layout adapts to mobile, tablet, and desktop devices.
+- **Loading States**: Skeleton loaders during data fetching.
+- **Error Handling**: Empty states and error messages.
+
+### Bonus Features
+
+- **Favorites System**: Persist favorite characters using LocalStorage.
+- **Dark/Light Mode**: Theme toggling with system preference detection.
+- **Animations**: Page transitions and list animations using Framer Motion.
+- **Unit Testing**: Component tests implemented with Vitest and React Testing Library.
+- **Episode Integration**: View episode details within the character profile.
+
+## Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/) (Radix Primitives)
+- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/) (with Persist middleware)
+- **Data Fetching**: [TanStack Query](https://tanstack.com/query/latest)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Testing**: [Vitest](https://vitest.dev/) & React Testing Library
+
+## Time Tracking
+
+| Task                         | Time Spent  | Notes                                    |
+| ---------------------------- | ----------- | ---------------------------------------- |
+| **Setup & Config**           | 30m         | Next.js init, Tailwind v4, Shadcn setup  |
+| **Core UI & Layout**         | 1h 30m      | Card components, Grid, Responsive Layout |
+| **API & State**              | 1h          | TanStack Query setup, Zustand store      |
+| **Features (Search/Filter)** | 1h 30m      | Debounced search, URL-sync filters       |
+| **Detail Page & Episodes**   | 1h          | Dynamic routing, Episode fetching        |
+| **Bonus (Dark Mode/Favs)**   | 1h          | Next-themes, LocalStorage persistence    |
+| **Testing & Polish**         | 1h          | Vitest setup, Animations, Bug fixes      |
+| **Total**                    | **~7h 30m** |                                          |
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd rick-morty-characters-client
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Run tests**
+
+   ```bash
+   npm test
+   ```
+
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## Testing
+
+Unit tests are implemented using Vitest. To run the test suite:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Currently covers:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `CharacterCard`: Rendering and interaction logic.
+- `SearchInput`: Debounce logic and state updates.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+src/
+├── app/              # Next.js App Router pages
+├── components/       # Reusable UI components
+│   ├── ui/           # Shadcn UI primitives
+├── hooks/            # Custom hooks (useSearchQuery, etc.)
+├── lib/              # Utilities (API client, utils)
+├── store/            # Zustand state store
+├── types/            # TypeScript definitions
+└── test/             # Test setup and configuration
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+_Submitted for Transportech Frontend Developer Assessment_
