@@ -26,7 +26,7 @@ export default function FilterInput({
   emptyMessage = "No options found.",
   paramName = "filter",
   className,
-  width = "200px",
+  width = "47.5%",
   value,
   onValueChange,
   defaultValue,

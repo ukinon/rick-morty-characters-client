@@ -18,7 +18,7 @@ export default function ClientPage() {
       </div>
 
       <Card className="p-4">
-        <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
+        <div className="flex flex-col md:flex-row gap-4 justify-between items-center w-full">
           <SearchInput />
           <div className="flex gap-4 w-full md:w-auto">
             <FilterInput
@@ -39,6 +39,7 @@ export default function ClientPage() {
                 { label: "Genderless", value: "genderless" },
                 { label: "Unknown", value: "unknown" },
               ]}
+              className="w-[20px]"
             />
           </div>
         </div>
