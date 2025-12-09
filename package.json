@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
-    "build:pages": "npx @opennextjs/cloudflare build",
-    "dev:pages": "npm run build:pages && wrangler dev",
-    "deploy:pages": "npm run build:pages && wrangler deploy",
-    "deploy:preview": "npm run build:pages && wrangler deploy --env preview"
+    "build": "next build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
