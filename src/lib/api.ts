@@ -1,6 +1,6 @@
 import { ApiResponse, Character, Episode, FilterParams } from "@/types";
 
-const BASE_URL = "https://rickandmortyapi.com/api";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getCharacters(
   params: FilterParams = {}
