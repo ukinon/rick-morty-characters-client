@@ -58,7 +58,9 @@ export function CharacterCard({ character }: CharacterCardProps) {
                 isFavorite ? "Remove from favorites" : "Add to favorites"
               }
             >
-              <Heart className={`h-6 w-6 ${isFavorite ? "fill-current" : ""}`} />
+              <Heart
+                className={`h-6 w-6 ${isFavorite ? "fill-current" : ""}`}
+              />
             </Button>
           </div>
         </CardHeader>
