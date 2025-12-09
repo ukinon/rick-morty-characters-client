@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
-    "build:pages": "npx @opennextjs/cloudflare",
+    "build:pages": "npx @opennextjs/cloudflare build",
     "dev:pages": "npm run build:pages && wrangler dev",
     "deploy:pages": "npm run build:pages && wrangler deploy",
     "deploy:preview": "npm run build:pages && wrangler deploy --env preview"
