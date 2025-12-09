@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
 
 export function Header() {
   return (
@@ -10,15 +11,23 @@ export function Header() {
         >
           Rick & Morty
         </Link>
-        <nav>
+        <nav className="flex items-center gap-4">
           <ul className="flex gap-4">
             <li>
               <Link href="/" className="hover:text-cyan-400 transition-colors">
                 Characters
               </Link>
             </li>
-            {/* We can add Favorites link later */}
+            <li>
+              <Link
+                href="/favorites"
+                className="hover:text-cyan-400 transition-colors"
+              >
+                Favorites
+              </Link>
+            </li>
           </ul>
+          <ModeToggle />
         </nav>
       </div>
     </header>

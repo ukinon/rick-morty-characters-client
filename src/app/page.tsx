@@ -31,8 +31,12 @@ export default async function Home({
     typeof resolvedSearchParams.gender === "string"
       ? resolvedSearchParams.gender
       : "";
+  const species =
+    typeof resolvedSearchParams.species === "string"
+      ? resolvedSearchParams.species
+      : "";
 
-  const queryParams = { page, name, status, gender };
+  const queryParams = { page, name, status, gender, species };
   const paramString = JSON.stringify(queryParams);
 
   await queryClient.prefetchQuery({

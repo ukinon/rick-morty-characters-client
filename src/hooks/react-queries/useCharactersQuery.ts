@@ -8,12 +8,14 @@ export function useCharactersQuery() {
 
   const status = filters["status"] as string | undefined;
   const gender = filters["gender"] as string | undefined;
+  const species = filters["species"] as string | undefined;
 
   const queryParams = {
     page,
     name: search,
     status,
     gender,
+    species,
   };
 
   // Create a stable string representation of params for the query key

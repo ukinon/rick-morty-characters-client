@@ -43,7 +43,7 @@ export function Combobox({
   searchPlaceholder = "Search...",
   emptyMessage = "No item found.",
   className,
-  width = "200px",
+  width = "100%",
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
 
@@ -54,7 +54,10 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("justify-between", className)}
+          className={cn(
+            "justify-between bg-white/90 text-slate-900 border-slate-300 hover:bg-white dark:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800",
+            className
+          )}
           style={{ width }}
         >
           {value
@@ -63,8 +66,8 @@ export function Combobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0 w-full">
-        <Command>
+      <PopoverContent className="p-0 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg">
+        <Command className="bg-transparent">
           <CommandInput placeholder={searchPlaceholder} />
           <CommandList>
             <CommandEmpty>{emptyMessage}</CommandEmpty>

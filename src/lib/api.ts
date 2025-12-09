@@ -1,4 +1,4 @@
-import { ApiResponse, Character, FilterParams } from "@/types";
+import { ApiResponse, Character, Episode, FilterParams } from "@/types";
 
 const BASE_URL = "https://rickandmortyapi.com/api";
 
@@ -38,7 +38,21 @@ export async function getCharacter(id: string): Promise<Character> {
   return res.json();
 }
 
-export async function getEpisodes(urls: string[]) {
+export async function getCharactersByIds(ids: number[]): Promise<Character[]> {
+  if (ids.length === 0) return [];
+
+  const res = await fetch(`${BASE_URL}/character/${ids.join(",")}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch characters");
+  }
+
+  const data = await res.json();
+  // API returns a single object if only one ID is requested, so we normalize to array
+  return Array.isArray(data) ? data : [data];
+}
+
+export async function getEpisodes(urls: string[]): Promise<Episode[]> {
   // Extract IDs from URLs to fetch multiple episodes in one go if possible,
   // or just fetch them individually. For simplicity and performance on client,
   // we might fetch them.
